@@ -1,18 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-import {
-  Link
-} from 'react-router-dom'
 import { StyleSheet, css } from 'aphrodite';
 import Colours from '../../00_base/Colours/Colours';
+import PageHeader from '../../03_organism/PageHeader/PageHeader';
 
 const Default = (props) => (
   <div className={css(styles.container)}>
-    <ul>
-      <li><Link to="/">Home</Link></li>
-      <li><Link to="/recipes">Recipe Landing</Link></li>
-    </ul>
+    <PageHeader />
     <div>
       {props.children}
     </div>

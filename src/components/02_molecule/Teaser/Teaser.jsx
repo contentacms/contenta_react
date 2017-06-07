@@ -7,7 +7,7 @@ const Teaser = (props) => (
       <Picture />
     </div>
     <div>
-      {props.tags.join(', ')}
+      {props.subtitle}
     </div>
     <div>
       {props.title}
