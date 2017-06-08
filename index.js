@@ -32,7 +32,7 @@ app.get('*', function (req, res) {
     if (match && typeof route.loadData !== 'undefined') {
       const loadData = route.loadData;
       loadData.forEach(item => {
-        promises.push(store.dispatch(item('server')));
+        promises.push(store.dispatch(item()));
       });
     }
     return match
