@@ -16,9 +16,11 @@ See the section about [deployment](#deployment) for more information.
 
 ### `yarn run start`
 
-Starts the app in production mode, which will include a server-side render of the initial page load.
+After running ```yarn run build```, starts the app in production mode, which will include a server-side render of the initial page load.
 
-### `yarn start:dev`
+Visit [http://localhost:9000](http://localhost:9000) and try disabling JavaScript!
+
+### `yarn run start:dev`
 
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.

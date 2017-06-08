@@ -1,7 +1,6 @@
 import express from 'express';
 import path from 'path';
 import fs from 'fs';
-import mustache from 'mustache';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { StyleSheetServer } from 'aphrodite'
@@ -24,7 +23,7 @@ const store = createStore(
 app.use(express.static(path.join(__dirname, 'build')));
 
 app.get('*', function (req, res) {
-  const template = fs.readFileSync(path.join(__dirname, 'build', '_index.html')).toString();
+  let template = fs.readFileSync(path.join(__dirname, 'build', '_index.html')).toString();
   const context = {};
   let promises = [];
 
@@ -51,17 +50,17 @@ app.get('*', function (req, res) {
   ));
 
   Promise.all(promises).then(() => {
-    const data = {
-      initialRender: html,
-      inlineCss: `<style>${css.content}</style>`,
-      reduxState: `${JSON.stringify(store.getState()).replace(/</g, '\\u003c')}`
-    };
+    // This is quite a hack because we don't want to deviate from create-react-app and continue using
+    // the same index.html file. If we add a templating indicator e.g. mustache, then it shows up
+    // when doing client-side development.
+    template = template.replace('<div id="root"></div>', `<div id="root">${html}</div><script>window.__PRELOADED_STATE__ = ${JSON.stringify(store.getState()).replace(/</g, '\\u003c')}</script>`)
+      .replace('</head>', `<style>${css.content}</style></head>`);
 
     if (context.url) {
       res.redirect(301, context.url);
     }
     else {
-      res.send(mustache.render(template, data));
+      res.send(template);
     }
   });
 });

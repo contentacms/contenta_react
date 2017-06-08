@@ -7,7 +7,7 @@ import TeaserList from '../../03_organism/TeaserList/TeaserList';
 
 class RecipeLanding extends Component {
   componentDidMount() {
-    if (!this.props.serverLoadedData) {
+    if (!this.props.latestRecipes.length) {
       this.props.fetchRecipeLanding();
     }
   }
@@ -29,6 +29,5 @@ class RecipeLanding extends Component {
 }
 
 export default connect((state) => ({
-  serverLoadedData: state.api.serverLoadedData,
   latestRecipes: state.api.latestRecipes,
 }), { ...apiActions })(RecipeLanding);
