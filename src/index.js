@@ -8,7 +8,7 @@ import api from './reducers/api';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
-const preloadedState = window.__PRELOADED_STATE__;
+const preloadedState = typeof window.__PRELOADED_STATE__ !== 'undefined' ? window.__PRELOADED_STATE__ : {};
 delete window.__PRELOADED_STATE__;
 
 /* eslint-disable no-underscore-dangle */
