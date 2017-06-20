@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 html {
   line-height: 1.5;
   font-family: "Roboto", sans-serif;
@@ -10,6 +14,8 @@ html {
 
 a {
   text-decoration: none;
+  /** Gets rid of tap active state **/
+  -webkit-tap-highlight-color: transparent;
 }
 
 h1, h2, h3, h4, h5, h6 {

@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import thunkMiddleware from 'redux-thunk';
 import api from './reducers/api';
 import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+// import registerServiceWorker from './registerServiceWorker';
 
 const preloadedState = typeof window.__PRELOADED_STATE__ !== 'undefined' ? window.__PRELOADED_STATE__ : {};
 delete window.__PRELOADED_STATE__;
@@ -29,4 +29,4 @@ ReactDOM.render(
     </BrowserRouter>
   </Provider>
   , document.getElementById('root'));
-registerServiceWorker();
+// registerServiceWorker();

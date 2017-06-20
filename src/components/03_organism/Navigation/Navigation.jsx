@@ -1,16 +1,33 @@
 import React from 'react';
-import {
-  Link
-} from 'react-router-dom'
+import Logo from '../../02_molecule/Logo/Logo';
+import { Link, NavLink } from 'react-router-dom'
 import { StyleSheet, css } from 'aphrodite';
-import { Breakpoints, Colours, ZLevels } from '../../../Styles';
+import { Breakpoints, Colors, ZLevels } from '../../../styles/styles';
+
+const links = [
+  ['Home', '/', 'home'],
+  ['Recipe Landing', '/recipes', 'recipes']
+];
 
 const Navigation = () => (
   <nav className={css(styles.nav)}>
     <div className={css(styles.wrapper)}>
+      <Link to="/" className={css(styles.logo)}><Logo /></Link>
       <ul className={css(styles.ul)}>
-        <li className={css(styles.li)}><Link className={css(styles.liA)} to="/">Home</Link></li>
-        <li className={css(styles.li)}><Link className={css(styles.liA)} to="/recipes">Recipe Landing</Link></li>
+        {links.map(link => (
+          <li className={css(styles.li)} key={link[2]}>
+            <NavLink
+            activeClassName={css(styles.activeLink)}
+            className={css(styles.link)}
+            isActive={(match, location) => {
+              return (match && match.path === location.pathname);
+            }}
+            to={link[1]}
+          >
+              {link[0]}
+            </NavLink>
+          </li>
+        ))}
       </ul>
     </div>
   </nav>
@@ -18,9 +35,9 @@ const Navigation = () => (
 
 const styles = StyleSheet.create({
   nav: {
-    color: Colours.shades.white,
+    color: Colors.shades.white,
     ...ZLevels.zDepth1,
-    backgroundColor: Colours.red.lighten2,
+    backgroundColor: Colors.red.lighten2,
     width: '100%',
     height: '56px',
     lineHeight: '56px',
@@ -29,19 +46,14 @@ const styles = StyleSheet.create({
       height: '64px',
     }
   },
-  a: {
-    color: Colours.shades.white,
-  },
   wrapper: {
     position: 'relative',
     height: '100%',
   },
   logo: {
     position: 'absolute',
-    color: Colours.shades.white,
     display: 'inline-block',
-    FontSize: '2.1rem',
-    padding: 0,
+    padding: '0 1rem',
     whiteSpace: 'nowrap',
     [`@media ${Breakpoints.mediumAndDown}`]: {
       left: '50%',
@@ -50,23 +62,29 @@ const styles = StyleSheet.create({
   },
   ul: {
     margin: 0,
+    padding: 0,
+    display: 'inline-block',
+    float: 'right',
   },
   li: {
+    display: 'inline-block',
     listStyleType: 'none',
     transition: 'background-color .3s',
-    float: 'left',
     padding: 0,
   },
-  liA: {
+  link: {
     transition: 'background-color .3s',
     fontSize: '1rem',
-    color: Colours.shades.white,
+    color: Colors.shades.white,
     display: 'block',
     padding: '0 15px',
     cursor: 'pointer',
     ':hover': {
       backgroundColor: 'rgba(0,0,0,.1)',
     }
+  },
+  activeLink: {
+    backgroundColor: 'rgba(0,0,0,.1)',
   }
 });
 

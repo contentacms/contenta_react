@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, css } from 'aphrodite';
 import Button from '../../01_atom/Button/Button';
-import { Grid } from '../../../Styles';
+import { Grid } from '../../../styles/styles';
 
 const TeaserFeatured = (props) => (
   <div className={css(styles.context)}>
