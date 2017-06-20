@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, css } from 'aphrodite';
 import Button from '../../01_atom/Button/Button';
-import Colours from '../../00_base/Colours/Colours';
-import Grid from '../../00_base/Grid/Grid';
+import { Grid } from '../../../Styles';
 
 const TeaserFeatured = (props) => (
   <div className={css(styles.context)}>
@@ -17,8 +16,7 @@ const TeaserFeatured = (props) => (
 
 const styles = StyleSheet.create({
   context: {
-    ...Grid.context,
-    background: Colours.grey,
+    ...Grid.context
   },
   span: {
     ...Grid.span(6),

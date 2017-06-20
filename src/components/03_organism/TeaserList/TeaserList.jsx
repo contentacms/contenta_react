@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, css } from 'aphrodite';
 import Button from '../../01_atom/Button/Button';
 import Teaser from '../../02_molecule/Teaser/Teaser';
-import Grid from '../../00_base/Grid/Grid.js';
+import { Grid } from '../../../Styles';
 
 const TeaserList = (props) => (
   <div>

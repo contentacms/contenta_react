@@ -1,11 +1,13 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import routes from './routes';
+import { StyleSheet, css } from 'aphrodite';
+import { Breakpoints, Colours } from './Styles';
 import 'normalize.css/normalize.css';
 import './base.css';
 
 const App = () => (
-  <div>
+  <div className={css(styles.base)}>
     <Switch>
       {routes.map(route =>
         <Route
@@ -19,5 +21,20 @@ const App = () => (
     </Switch>
   </div>
 );
+
+const styles = StyleSheet.create({
+  base: {
+    color: Colours.shades.offBlack,
+    '@media only screen and (min-width: 0)': {
+      fontSize: '14px',
+    },
+    [`@media only screen and (min-width: ${Breakpoints.medium}px)`]: {
+      fontSize: '14.5px',
+    },
+    [`@media only screen and (min-width: ${Breakpoints.large})px`]: {
+      fontSize: '15px',
+    },
+  },
+});
 
 export default App;

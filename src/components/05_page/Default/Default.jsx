@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, css } from 'aphrodite';
-import Colours from '../../00_base/Colours/Colours';
 import PageHeader from '../../03_organism/PageHeader/PageHeader';
 
 const Default = (props) => (
@@ -15,7 +14,6 @@ const Default = (props) => (
 
 const styles = StyleSheet.create({
   container: {
-    background: Colours.white,
   },
 });
 
