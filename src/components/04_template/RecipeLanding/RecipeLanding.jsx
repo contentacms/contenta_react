@@ -28,6 +28,8 @@ class RecipeLanding extends Component {
   }
 }
 
+RecipeLanding.loadData = [apiActions.fetchRecipeLanding];
+
 export default connect((state) => ({
   latestRecipes: state.api.latestRecipes,
 }), { ...apiActions })(RecipeLanding);

@@ -8,7 +8,13 @@ const App = () => (
   <div>
     <Switch>
       {routes.map(route =>
-        <Route exact strict path={route.path} component={route.component} key={route.path} />
+        <Route
+          exact
+          strict
+          path={route.path}
+          component={route.component}
+          key={route.path}
+        />,
       )}
     </Switch>
   </div>

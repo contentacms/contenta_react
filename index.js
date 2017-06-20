@@ -29,8 +29,8 @@ app.get('*', function (req, res) {
 
   routes.some(route => {
     const match = matchPath(req.url, route);
-    if (match && typeof route.loadData !== 'undefined') {
-      const loadData = route.loadData;
+    if (match && typeof route.component.loadData !== 'undefined') {
+      const loadData = route.component.loadData;
       loadData.forEach(item => {
         promises.push(store.dispatch(item()));
       });
