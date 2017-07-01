@@ -6,10 +6,11 @@ import { Provider } from 'react-redux';
 import thunkMiddleware from 'redux-thunk';
 import api from './reducers/api';
 import App from './App';
-// import registerServiceWorker from './registerServiceWorker';
 import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
 
-const preloadedState = typeof window.__PRELOADED_STATE__ !== 'undefined' ? window.__PRELOADED_STATE__ : {};
+const preloadedState = typeof window.__PRELOADED_STATE__ !== 'undefined'
+  ? window.__PRELOADED_STATE__
+  : {};
 delete window.__PRELOADED_STATE__;
 
 /* eslint-disable no-underscore-dangle */
@@ -17,7 +18,9 @@ const store = createStore(
   combineReducers({ api }),
   preloadedState,
   composeWithDevTools(
-    applyMiddleware(thunkMiddleware)
+    applyMiddleware(thunkMiddleware),
+    window.__REDUX_DEVTOOLS_EXTENSION__ &&
+      window.__REDUX_DEVTOOLS_EXTENSION__(),
   ),
 );
 /* eslint-enable no-underscore-dangle */
@@ -27,6 +30,7 @@ ReactDOM.render(
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  </Provider>
-  , document.getElementById('root'));
+  </Provider>,
+  document.getElementById('root'),
+);
 // registerServiceWorker();
