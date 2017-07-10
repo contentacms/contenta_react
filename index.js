@@ -1,4 +1,5 @@
 import express from 'express';
+import compression from 'compression';
 import path from 'path';
 import fs from 'fs';
 import React from 'react';
@@ -13,6 +14,7 @@ import reducers from './src/reducers/index';
 import App from './src/App';
 
 const app = express();
+app.use(compression());
 const store = createStore(
   combineReducers(reducers),
   compose(
