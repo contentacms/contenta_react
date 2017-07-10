@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as apiActions from '../../../actions/api';
+import * as landingPageActions from '../../../actions/landingPages';
 import Default from '../../05_page/Default/Default';
 import TeaserFeatured from '../../03_organism/TeaserFeatured/TeaserFeatured';
 import TeaserList from '../../03_organism/TeaserList/TeaserList';
 
 class RecipeLanding extends Component {
   componentDidMount() {
-    if (!this.props.latestRecipes.length) {
-      this.props.fetchRecipeLanding();
+    if (!this.props.categories.length) {
+      this.props.loadRecipeLandingPage();
     }
   }
   render() {
@@ -16,11 +16,17 @@ class RecipeLanding extends Component {
       <Default>
         <div>
           <TeaserFeatured />
-          <TeaserList teasers={this.props.latestRecipes.map(latestRecipe => ({
-            id: latestRecipe.id,
-            title: latestRecipe.attributes.title,
-            subtitle: latestRecipe.attributes.field_difficulty,
-          }))} />
+          {this.props.landingPageCategories.map(category => (
+            <div key={category.id} >
+              <h3>{this.props.categories[category.id].title}</h3>
+              <TeaserList teasers={category.recipes.map(recipe => ({
+                id: recipe,
+                title: this.props.recipes[recipe].title,
+                subtitle: this.props.recipes[recipe].time > 0 ? `${this.props.recipes[recipe].time}m` : '',
+                image: this.props.files[this.props.recipes[recipe].image].uri,
+              }))} />
+            </div>
+          ))}
           <TeaserFeatured textAlignment="right" />
         </div>
       </Default>
@@ -28,8 +34,18 @@ class RecipeLanding extends Component {
   }
 }
 
-RecipeLanding.loadData = [apiActions.fetchRecipeLanding];
+RecipeLanding.defaultProps = {
+  categories: {},
+  files: {},
+  landingPageCategories: {},
+  recipes: {},
+};
+
+RecipeLanding.loadData = [landingPageActions.loadRecipeLandingPage];
 
 export default connect((state) => ({
-  latestRecipes: state.api.latestRecipes,
-}), { ...apiActions })(RecipeLanding);
+  categories: state.api.categories,
+  files: state.api.files,
+  landingPageCategories: state.landingPages.categories,
+  recipes: state.api.recipes,
+}), { ...landingPageActions })(RecipeLanding);

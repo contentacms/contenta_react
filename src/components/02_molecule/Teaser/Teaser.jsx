@@ -4,7 +4,7 @@ import Picture from '../../01_atom/Picture/Picture';
 const Teaser = (props) => (
   <div>
     <div>
-      <Picture />
+      <Picture uri={props.image} />
     </div>
     <div>
       {props.subtitle}

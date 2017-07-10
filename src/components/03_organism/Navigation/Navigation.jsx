@@ -2,7 +2,7 @@ import React from 'react';
 import Logo from '../../02_molecule/Logo/Logo';
 import { Link, NavLink } from 'react-router-dom'
 import { StyleSheet, css } from 'aphrodite';
-import { Breakpoints, Colors, ZLevels } from '../../../styles/styles';
+import Breakpoints from '../../../styles/breakpoints';
 
 const links = [
   ['Home', '/', 'home'],
@@ -35,9 +35,9 @@ const Navigation = () => (
 
 const styles = StyleSheet.create({
   nav: {
-    color: Colors.shades.white,
-    ...ZLevels.zDepth1,
-    backgroundColor: Colors.red.lighten2,
+    // color: Colors.shades.white,
+    // ...ZLevels.zDepth1,
+    // backgroundColor: Colors.red.lighten2,
     width: '100%',
     height: '56px',
     lineHeight: '56px',
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
   link: {
     transition: 'background-color .3s',
     fontSize: '1rem',
-    color: Colors.shades.white,
+    // color: Colors.shades.white,
     display: 'block',
     padding: '0 15px',
     cursor: 'pointer',

@@ -4,9 +4,9 @@ import { BrowserRouter } from 'react-router-dom';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunkMiddleware from 'redux-thunk';
-import api from './reducers/api';
-import App from './App';
 import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
+import reducers from './reducers/index';
+import App from './App';
 
 const preloadedState = typeof window.__PRELOADED_STATE__ !== 'undefined'
   ? window.__PRELOADED_STATE__
@@ -15,12 +15,10 @@ delete window.__PRELOADED_STATE__;
 
 /* eslint-disable no-underscore-dangle */
 const store = createStore(
-  combineReducers({ api }),
+  combineReducers(reducers),
   preloadedState,
   composeWithDevTools(
-    applyMiddleware(thunkMiddleware),
-    window.__REDUX_DEVTOOLS_EXTENSION__ &&
-      window.__REDUX_DEVTOOLS_EXTENSION__(),
+    applyMiddleware(thunkMiddleware)
   ),
 );
 /* eslint-enable no-underscore-dangle */

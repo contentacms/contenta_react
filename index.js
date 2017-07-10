@@ -9,12 +9,12 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import thunkMiddleware from 'redux-thunk';
 import routes from './src/routes';
-import api from './src/reducers/api';
+import reducers from './src/reducers/index';
 import App from './src/App';
 
 const app = express();
 const store = createStore(
-  combineReducers({ api }),
+  combineReducers(reducers),
   compose(
     applyMiddleware(thunkMiddleware),
   ),
@@ -38,18 +38,18 @@ app.get('*', function (req, res) {
     return match
   });
 
-  const { html, css } = StyleSheetServer.renderStatic(() => ReactDOMServer.renderToString(
-    <Provider store={store}>
-      <StaticRouter
-        location={req.url}
-        context={context}
-      >
-        <App/>
-      </StaticRouter>
-    </Provider>
-  ));
+  Promise.all(promises).then((result) => {
+    const { html, css } = StyleSheetServer.renderStatic(() => ReactDOMServer.renderToString(
+      <Provider store={store}>
+        <StaticRouter
+          location={req.url}
+          context={context}
+        >
+          <App/>
+        </StaticRouter>
+      </Provider>
+    ));
 
-  Promise.all(promises).then(() => {
     // This is quite a hack because we don't want to deviate from create-react-app and continue using
     // the same index.html file. If we add a templating indicator e.g. mustache, then it shows up
     // when doing client-side development.
