@@ -25,7 +25,8 @@
     "react-router-dom": "^4.1.1",
     "redux": "^3.6.0",
     "redux-devtools-extension": "^2.13.2",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "react-scripts": "1.0.7"
   },
   "devDependencies": {
     "eslint": "3.19.0",
@@ -34,7 +35,6 @@
     "eslint-plugin-jsx-a11y": "5.0.1",
     "eslint-plugin-react": "7.0.1",
     "prettier": "^1.4.4",
-    "react-scripts": "1.0.7"
   },
   "scripts": {
     "postinstall": "yarn run build",
