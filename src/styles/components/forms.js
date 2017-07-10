@@ -2,22 +2,24 @@ import Colors from './colors';
 
 const inputBorderColor = 'color("grey", "base")';
 
+const input = {
+  backgroundColor: 'transparent',
+  border: 'none',
+  borderBottom: `1px solid ${inputBorderColor}`,
+  borderRadius: 0,
+  outline: 'none',
+  height: '3rem',
+  width: '100%',
+  fontSize: '1rem',
+  margin: '0 0 20px 0',
+  padding: 0,
+  boxShadow: 'none',
+  boxSizing: 'content-box',
+  transition: 'all .3s',
+};
+
 const forms = {
-  input: {
-    backgroundColor: 'transparent',
-    border: 'none',
-    borderBottom: `1px solid ${inputBorderColor}`,
-    borderRadius: 0,
-    outline: 'none',
-    height: '3rem',
-    width: '100%',
-    fontSize: '1rem',
-    margin: '0 0 20px 0',
-    padding: 0,
-    boxShadow: 'none',
-    boxSizing: 'content-box',
-    transition: 'all .3s',
-  },
+  input: `${input}`,
   inputWrapper: {
     position: 'relative',
     marginTop: '1rem',
@@ -33,7 +35,19 @@ const forms = {
     textAlgin: 'initial',
   },
   inputSearch: {
-    ...this.input,
+    backgroundColor: 'transparent',
+    border: 'none',
+    borderBottom: `1px solid ${inputBorderColor}`,
+    borderRadius: 0,
+    outline: 'none',
+    height: '3rem',
+    width: '100%',
+    fontSize: '1rem',
+    margin: '0 0 20px 0',
+    padding: 0,
+    boxShadow: 'none',
+    boxSizing: 'content-box',
+    transition: 'all .3s',
     display: 'block',
     lineHeight: 'inherit',
     paddingLeft: '4rem',
