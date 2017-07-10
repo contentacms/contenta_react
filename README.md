@@ -1,6 +1,11 @@
 # Contenta React Demo
 with Redux, Aphrodite, and server-side rendering
 
+```bash
+yarn install
+yarn start
+```
+
 ## Available Scripts
 
 In the project directory, you can run:
