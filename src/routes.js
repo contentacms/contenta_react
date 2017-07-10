@@ -18,8 +18,8 @@ const routes = [
     path: '/recipes',
     component: RecipeLanding,
     exact: true,
-    strict: true
-  }
+    strict: true,
+  },
 ];
 
 export default routes;

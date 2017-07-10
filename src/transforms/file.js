@@ -1,6 +1,6 @@
 import { get } from 'lodash';
 
-const transform = (file) => ({
+const transform = file => ({
   id: file.id,
   uri: get(file, 'attributes.uri'),
 });

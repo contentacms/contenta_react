@@ -1,6 +1,6 @@
 import { get } from 'lodash';
 
-const transform = (category) => ({
+const transform = category => ({
   id: category.id,
   title: get(category, 'attributes.name'),
 });

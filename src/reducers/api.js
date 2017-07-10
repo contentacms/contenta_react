@@ -22,7 +22,7 @@ export default (state = initialState, action) => {
         categories: {
           ...state.categories,
           [category.id]: category,
-        }
+        },
       };
     }
     case STORE_FILE: {
@@ -32,17 +32,17 @@ export default (state = initialState, action) => {
         files: {
           ...state.files,
           [file.id]: file,
-        }
+        },
       };
     }
     case STORE_RECIPE: {
-      const recipe = recipeTransform(action.payload.recipe, action.payload.images, action.payload.files);
+      const recipe = recipeTransform(action.payload.recipe, action.payload.images);
       return {
         ...state,
         recipes: {
           ...state.recipes,
           [recipe.id]: recipe,
-        }
+        },
       };
     }
     default:

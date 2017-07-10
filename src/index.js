@@ -8,20 +8,20 @@ import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
 import reducers from './reducers/index';
 import App from './App';
 
+/* eslint-disable no-underscore-dangle */
 const preloadedState = typeof window.__PRELOADED_STATE__ !== 'undefined'
   ? window.__PRELOADED_STATE__
   : {};
 delete window.__PRELOADED_STATE__;
+/* eslint-enable no-underscore-dangle */
 
-/* eslint-disable no-underscore-dangle */
 const store = createStore(
   combineReducers(reducers),
   preloadedState,
   composeWithDevTools(
-    applyMiddleware(thunkMiddleware)
+    applyMiddleware(thunkMiddleware),
   ),
 );
-/* eslint-enable no-underscore-dangle */
 
 ReactDOM.render(
   <Provider store={store}>

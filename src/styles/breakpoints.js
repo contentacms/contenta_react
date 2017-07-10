@@ -1,7 +1,7 @@
 const screenSize = {
-	small: 600,
-  	medium: 992,
-  	large: 1200,
+  small: 600,
+  medium: 992,
+  large: 1200,
 };
 
 const breakpoints = {

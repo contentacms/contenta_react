@@ -1,6 +1,6 @@
 import { get } from 'lodash';
 
-export default function(recipe, images, files) {
+export default function (recipe, images) {
   const imageId = get(recipe, 'relationships.image.data.id');
   const fileId = images[imageId].relationships.imageFile.data.id;
   return {
@@ -10,4 +10,4 @@ export default function(recipe, images, files) {
     image: fileId,
     time: get(recipe, 'attributes.totalTime'),
   };
-};
+}

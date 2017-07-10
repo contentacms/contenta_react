@@ -1,5 +1,5 @@
 import {
-  STORE_RECIPE_LANDING_PAGE
+  STORE_RECIPE_LANDING_PAGE,
 } from '../actions/landingPages';
 
 const initialState = {
@@ -13,8 +13,8 @@ export default (state = initialState, action) => {
         ...state,
         categories: action.payload.categories.map((category, index) => ({
           id: category,
-          recipes: action.payload.recipesByCategory[index].data.data.map(recipe => recipe.id)
-        }))
+          recipes: action.payload.recipesByCategory[index].data.data.map(recipe => recipe.id),
+        })),
       };
     }
     default:
