@@ -65,4 +65,4 @@ app.get('*', function (req, res) {
   });
 });
 
-app.listen(process.env.REACT_APP_EXPRESS_PORT);
+app.listen(process.env.PORT);
