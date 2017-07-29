@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, css } from 'aphrodite';
 import Button from '../../01_atom/Button/Button';
-import Grid from '../../../styles/grid';
+import grid from '../../../styles/grid';
+import breakpoint from '../../../styles/breakpoints';
 
 const TeaserFeatured = (props) => (
   <div className={css(styles.context)}>
@@ -16,12 +17,14 @@ const TeaserFeatured = (props) => (
 
 const styles = StyleSheet.create({
   context: {
-    ...Grid.context
+    ...grid.context
   },
   span: {
-    ...Grid.span(6),
     display: 'block',
     padding: '1rem',
+    [breakpoint.echoAndUp]: {
+      ...grid.span(6),
+    }
   },
   right: {
     float: 'right',

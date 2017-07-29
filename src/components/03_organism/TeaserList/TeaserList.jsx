@@ -1,8 +1,9 @@
 import React from 'react';
-import { StyleSheet, css } from 'aphrodite';
 import Button from '../../01_atom/Button/Button';
 import Teaser from '../../02_molecule/Teaser/Teaser';
-import Grid from '../../../styles/grid';
+import { StyleSheet, css } from 'aphrodite';
+import grid from '../../../styles/grid';
+import breakpoint from '../../../styles/breakpoints';
 
 const TeaserList = (props) => (
   <div>
@@ -18,11 +19,16 @@ const TeaserList = (props) => (
 );
 
 const styles = StyleSheet.create({
-  context: Grid.context,
+  context: grid.context,
   column: {
-    ...Grid.span(3),
     display: 'block',
     padding: '1rem',
+    [breakpoint.echoAndUp]: {
+      ...grid.span(6),
+    },
+    [breakpoint.limaAndUp]: {
+      ...grid.span(3),
+    }
   },
 });
 
