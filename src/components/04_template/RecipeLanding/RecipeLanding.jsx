@@ -23,7 +23,14 @@ class RecipeLanding extends Component {
       return (
         <Default>
           <div>
-            <TeaserFeatured />
+            <TeaserFeatured
+              title="Tips for growing and storing herbs"
+              body="Single-origin coffee crucifix DIY mlkshk dreamcatcher authentic wolf plaid selvage next level glossier bitters."
+              cta={{
+                title: 'more',
+                path: '/',
+              }}
+            />
             {this.props.landingPageCategories.map(category => (
               <div key={category.id}>
                 <h3>{this.props.categories[category.id].title}</h3>
@@ -35,7 +42,15 @@ class RecipeLanding extends Component {
                 }))}/>
               </div>
             ))}
-            <TeaserFeatured textAlignment="right"/>
+            <TeaserFeatured
+              title="More articles in this month's edition"
+              body="Humblebrag poke mustache, aesthetic whatever slow-carb heirloom meh hammock farm-to-table edison bulb fingerstache skateboard poutine helvetica. "
+              cta={{
+                title: 'more',
+                path: '/',
+              }}
+              textAlignment="right"
+            />
           </div>
         </Default>
       );
