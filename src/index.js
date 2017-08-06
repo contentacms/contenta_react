@@ -5,6 +5,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunkMiddleware from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
+import { loadingBarReducer as loadingBar } from 'react-redux-loading-bar';
 import reducers from './reducers/index';
 import App from './App';
 
@@ -16,7 +17,7 @@ delete window.__PRELOADED_STATE__;
 /* eslint-enable no-underscore-dangle */
 
 const store = createStore(
-  combineReducers(reducers),
+  combineReducers({ ...reducers, loadingBar }),
   preloadedState,
   composeWithDevTools(
     applyMiddleware(thunkMiddleware),

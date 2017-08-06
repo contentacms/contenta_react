@@ -1,8 +1,10 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import routes from './routes';
+import LoadingBar from 'react-redux-loading-bar';
 import 'normalize.css/normalize.css';
 import { StyleSheet } from 'aphrodite';
+
 const globalSelectorHandler = (selector, _, generateSubtreeStyles) => {
   if (selector[0] !== "*") {
     return null;
@@ -13,6 +15,7 @@ const extendedStylesheet = StyleSheet.extend([{selectorHandler: globalSelectorHa
 
 const App = () => (
   <div className={extendedStylesheet.css(styles.globals)}>
+    <LoadingBar className={extendedStylesheet.css(styles.loadingBar)} />
     <Switch>
       {routes.map(route =>
         <Route
@@ -96,7 +99,12 @@ const styles = extendedStylesheet.StyleSheet.create({
     '*img': {
       maxWidth: '100%',
     }
-  }
+  },
+  loadingBar: {
+    position: 'absolute',
+    height: '3px',
+    backgroundColor: '#77b6ff',
+  },
 });
 
 export default App;
