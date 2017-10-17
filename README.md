@@ -39,8 +39,7 @@ You will also see any lint errors in the console.
 ## Useful Links
 - [Contenta](http://www.contentacms.org/)
 - [Sample Source Data](http://live-contentacms.pantheonsite.io/)
-- [Sample Source Data APIs](http://live-contentacms.pantheonsite.io/api)
-- [Demo Implementation Guidelines](https://github.com/contentacms/contenta_jsonapi/blob/8.x-1.x/docs/demos-consumers-implementation-guidelines.md)
+- [Demo Implementation Guidelines](https://contentacms.readthedocs.io/en/latest/demos-consumers-implementation-guidelines/)
 - [Wireframes for Umami](https://www.drupal.org/node/2818741#comment-12114776)
 - [React JS](https://reactjs.org/)
 - [React Create App](https://github.com/facebookincubator/create-react-app)
