@@ -36,7 +36,7 @@
   },
   "scripts": {
     "postinstall": "yarn run build",
-    "start": "NODE_ENV=production node -r dotenv/config -r babel-register -r ignore-styles index.js",
+    "start": "NODE_ENV=production react-scripts start",
     "start:dev": "react-scripts start",
     "build": "react-scripts build && mv build/index.html build/_index.html",
     "test": "yarn run eslint -- src && react-scripts test --env=jsdom",
