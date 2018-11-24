@@ -15,7 +15,19 @@ const routes = [
     strict: true,
   },
   {
+    path: '/features',
+    component: RecipeLanding,
+    exact: true,
+    strict: true,
+  },
+  {
     path: '/recipes',
+    component: RecipeLanding,
+    exact: true,
+    strict: true,
+  },
+  {
+    path: '/magazine',
     component: RecipeLanding,
     exact: true,
     strict: true,
