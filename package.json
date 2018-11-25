@@ -2,8 +2,8 @@
   "name": "contenta_react",
   "version": "0.1.0",
   "engines": {
-    "yarn": "0.27.5",
-    "node": "6.x"
+    "yarn": "1.12.3",
+    "node": "10.13.0"
   },
   "private": true,
   "dependencies": {

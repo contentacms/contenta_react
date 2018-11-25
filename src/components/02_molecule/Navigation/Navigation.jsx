@@ -5,9 +5,9 @@ import breakpoints from '../../../styles/breakpoints';
 
 const links = [
   ['Home', '/', 'home'],
-  // ['Features', '/features', 'features'],
+  ['Features', '/features', 'features'],
   ['Recipes', '/recipes', 'recipes'],
-  // ['Magazine', '/magazine', 'magazine'],
+  ['Magazine', '/magazine', 'magazine'],
 ];
 
 const Navigation = () => (
