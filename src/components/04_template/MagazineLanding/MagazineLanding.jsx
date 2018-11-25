@@ -10,7 +10,7 @@ class MagazineLanding extends Component {
   componentDidMount() {
     if (!this.props.landingPageCategories.length) {
       this.props.showLoading();
-      this.props.loadRecipeLandingPage();
+      this.props.loadMagazineLandingPage();
     }
   }
   componentWillReceiveProps(nextProps) {
@@ -66,7 +66,7 @@ MagazineLanding.defaultProps = {
   recipes: {},
 };
 
-MagazineLanding.loadData = [landingPageActions.loadRecipeLandingPage];
+MagazineLanding.loadData = [landingPageActions.loadMagazineLandingPage];
 
 export default connect((state) => ({
   categories: state.api.categories,

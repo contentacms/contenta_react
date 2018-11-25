@@ -5,7 +5,9 @@
  * It returns an array of Redux Thunks.
  */
 import Home from './components/04_template/Home/Home';
+import FeatureLanding from './components/04_template/FeatureLanding/FeatureLanding';
 import RecipeLanding from './components/04_template/RecipeLanding/RecipeLanding';
+import MagazineLanding from './components/04_template/MagazineLanding/MagazineLanding';
 
 const routes = [
   {
