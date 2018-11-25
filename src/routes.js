@@ -18,7 +18,7 @@ const routes = [
   },
   {
     path: '/features',
-    component: RecipeLanding,
+    component: FeatureLanding,
     exact: true,
     strict: true,
   },
@@ -30,7 +30,7 @@ const routes = [
   },
   {
     path: '/magazine',
-    component: RecipeLanding,
+    component: MagazineLanding,
     exact: true,
     strict: true,
   },

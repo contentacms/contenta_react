@@ -10,7 +10,7 @@ class FeatureLanding extends Component {
   componentDidMount() {
     if (!this.props.landingPageCategories.length) {
       this.props.showLoading();
-      this.props.loadRecipeLandingPage();
+      this.props.loadFeatureLandingPage();
     }
   }
   componentWillReceiveProps(nextProps) {
@@ -24,8 +24,8 @@ class FeatureLanding extends Component {
         <Default>
           <div>
             <TeaserFeatured
-              title="Tips for growing and storing herbs"
-              body="Single-origin coffee crucifix DIY mlkshk dreamcatcher authentic wolf plaid selvage next level glossier bitters."
+              title="Featured"
+              body="L'apprentissage de la langue"
               cta={{
                 title: 'more',
                 path: '/',
@@ -43,8 +43,8 @@ class FeatureLanding extends Component {
               </div>
             ))}
             <TeaserFeatured
-              title="More articles in this month's edition"
-              body="Humblebrag poke mustache, aesthetic whatever slow-carb heirloom meh hammock farm-to-table edison bulb fingerstache skateboard poutine helvetica. "
+              title="More"
+              body="edison bulb fingerstache skateboard poutine helvetica. "
               cta={{
                 title: 'more',
                 path: '/',
@@ -66,7 +66,7 @@ FeatureLanding.defaultProps = {
   recipes: {},
 };
 
-FeatureLanding.loadData = [landingPageActions.loadRecipeLandingPage];
+FeatureLanding.loadData = [landingPageActions.loadFeatureLandingPage];
 
 export default connect((state) => ({
   categories: state.api.categories,

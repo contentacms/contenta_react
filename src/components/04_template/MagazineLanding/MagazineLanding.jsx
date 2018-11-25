@@ -24,8 +24,8 @@ class MagazineLanding extends Component {
         <Default>
           <div>
             <TeaserFeatured
-              title="Tips for growing and storing herbs"
-              body="Single-origin coffee crucifix DIY mlkshk dreamcatcher authentic wolf plaid selvage next level glossier bitters."
+              title="Magazine"
+              body="Chopin, Liszt."
               cta={{
                 title: 'more',
                 path: '/',

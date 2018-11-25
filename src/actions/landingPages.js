@@ -28,17 +28,13 @@ export function storeFeatureLandingPage(categories, recipesByCategory) {
 export const STORE_MAGAZINE_LANDING_PAGE = 'LOAD_MAGAZINE_LANDING_PAGE';
 export function storeMagazineLandingPage(categories, recipesByCategory) {
   return {
-    type: STORE_MAGAZINE_LANDING_PAGE,
+    type: STORE_RECIPE_LANDING_PAGE,
     payload: {
       categories,
       recipesByCategory,
     },
   };
 }
-
-
-
-
 
 export function loadRecipeLandingPage() {
   return function (dispatch) {
@@ -73,10 +69,7 @@ export function loadRecipeLandingPage() {
   };
 }
 
-
-
-
-export function loadFeLandingPage() {
+export function loadFeatureLandingPage() {
   return function (dispatch) {
     let pageCategories = [];
     return axios(`${api}/categories`)
